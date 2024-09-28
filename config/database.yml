@@ -84,8 +84,6 @@ test:
 #
 production:
   <<: *default
-  database: ecount_production
-  username: ecount
   password: <%= ENV["ECOUNT_DATABASE_PASSWORD"] %>
   host: <%= ENV["ECOUNT_HOST"] %>
   database: <%= ENV["ECOUNT_DATABASE"] %>
