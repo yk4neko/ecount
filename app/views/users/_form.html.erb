@@ -1,0 +1,28 @@
+<%= turbo_frame_tag user do %>
+  <%
+    opts = {
+      skip_label: true,
+      label_as_placeholder: true,
+      wrapper: false,
+      control_class: "form-control form-control-sm" 
+    }
+  %>
+  <%= bootstrap_form_with(model: user) do |form| %>
+    <div class="row py-2 border-top">
+      <div class="col my-auto">
+        <%= form.text_field :name, **opts %>
+      </div>
+      <div class="col my-auto">
+        <%= form.number_field :count, **opts %>
+      </div>
+      <div class="col my-auto">
+        <div class="d-flex justify-content-end">
+          <%= form.primary class: "btn btn-primary btn-sm me-2" %>
+          <%= link_to 'Cancel', users_url, class: "btn btn-sm btn-outline-secondary" %>
+         </div>
+      </div>
+    </div>
+
+  <% end %>
+<% end %>
+

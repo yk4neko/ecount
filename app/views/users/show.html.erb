@@ -1,0 +1,68 @@
+<p style="color: green"><%= notice %></p>
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f8ff;
+        }
+        .container {
+            text-align: center;
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+        #plant {
+            font-size: 100px;
+            margin: 20px 0;
+        }
+        input {
+            font-size: 16px;
+            padding: 10px;
+            width: 60%;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+        button {
+            font-size: 16px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        button:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+        #message {
+            color: #4CAF50;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+
+<body>
+    <div class="container"
+         data-controller='user' data-user-id="<%= @user.id %>" data-user-count="<%= @user.count %>" data-user-save-url="<%= save_api_user_path(@user) %>">
+        <h1>エクササイズ回数</h1>
+        <div id="plant">🌱</div>
+        <p>達成回数: <span id="count"><%= @user.count %></span> / 100</p>
+        <input type="number" id="input" min="0" max="100" placeholder="回数を入力">
+        <button  data-action='click->user#updateCount'>更新</button>
+        <p id="message"></p>
+    </div>
+</body>
